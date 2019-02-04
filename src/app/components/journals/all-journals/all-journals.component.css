@@ -1,0 +1,11 @@
+div.card:hover {
+  background-color: lightgrey;
+}
+
+.cardView {
+  width: 10cm;
+  float: left;
+  margin: 20px 20px 20px 50px;
+  cursor: pointer;
+  background: rgba(237, 237, 237, 0.85);
+}

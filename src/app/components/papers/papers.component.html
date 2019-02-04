@@ -1,0 +1,22 @@
+<div *ngFor="let paper of papers;let i=index;" class="list-group" align="center">
+  <div class="form-inline" align="center">
+
+    <button id="title" type="button" style="text-align: left" class="list-group-item list-group-item-action"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="{{paper.title}}">
+
+      <strong>{{(paper.title.length>80)? (paper.title |slice:0:80 )+'...':(paper.title)}}</strong>
+    </button>
+    <div *ngIf="paper.journal.openAccess">
+      <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Get paper"
+              (click)="getPaper(paper, i)">Get paper</button>
+    </div>
+    <div *ngIf="!paper.journal.openAccess">
+      <button class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Pay for paper"
+              (click)="payPaper(paper)">Pay for paper</button>
+    </div>
+
+
+  </div>
+</div>

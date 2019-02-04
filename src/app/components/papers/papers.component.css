@@ -1,0 +1,21 @@
+div {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+#title {
+  width: 70%;
+  background: rgba(255, 229,204, 0.5);
+  color: #333333;
+  margin-left: 10%;
+
+}
+
+
+.rec {
+  width: 60%;
+  background: rgba(237, 237, 237, 0.62);
+  margin-left: 20%;
+  /*padding: 30% 3% 10% 5%;*/
+}
+

@@ -1,0 +1,14 @@
+.back {
+  width: 60%;
+  background: rgba(237, 237, 237, 0.85);
+  margin-left: 20%;
+  margin-top: 5%;
+  padding-bottom: 2%;
+}
+
+.start {
+  width: 50%;
+  background: rgba(237, 237, 237, 0.85);
+  margin-left: 20%;
+  margin-top: 15%;
+}
