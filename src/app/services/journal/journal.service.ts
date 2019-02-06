@@ -13,8 +13,11 @@ export class JournalService {
     return this.http.get('/api/journals');
   }
 
+  getAllCompanyJournals(company: string) {
+    return this.http.get('/api/journals/for-company/' + company);
+  }
+
   getTokenForName(name: string) {
     return this.http.get('/api/get-token/'.concat(name), {responseType: 'text'});
-
   }
 }

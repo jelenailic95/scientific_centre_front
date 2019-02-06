@@ -1,40 +1,51 @@
-<div *ngIf="!buttonClicked" class="bgimg">
+<div *ngIf="!buttonClicked && !journalLogged" class="bgimg">
   <div class="back">
-    <div style="padding: 10% 0 0 0" class="jumbotron" align="center">
+    <div style="padding: 5% 0 0 0" class="jumbotron" align="center">
       <h3>Login</h3>
-      <hr style="margin-top: 6%">
+      <hr style="margin-top: 4%">
     </div>
-    <div style="margin-top: 10%;width: 55%;margin-left: 25%;">
-      <div class="input-group mb-3" >
+    <div style="margin-top: 5%;width: 55%;margin-left: 25%;">
+      <div class="input-group mb-3" style="width: 80%;">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">
-            <i class="fa fa-user fa-2x "></i>
+            <i class="fa fa-user fa-2x"></i>
           </span>
         </div>
-        <input class="form-control" id="username" [(ngModel)]="username" placeholder="Username" aria-describedby="basic-addon1"
-               style="width: 50%" type="text">
+        <input class="form-control" id="username" [(ngModel)]="username" placeholder="Username"
+               aria-describedby="basic-addon1" type="text">
       </div>
-      <div class="input-group mb-3" style="margin-top: 2%">
+      <div class="input-group mb-3" style="width: 80%;">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon2">
             <i class="fa fa-lock fa-2x "></i>
           </span>
         </div>
-        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" id="pass" aria-describedby="basic-addon2"
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" id="pass"
+               aria-describedby="basic-addon2"
                style="width: 50%">
       </div>
-      <div class="input-group mb-3" style="margin-top: 24%">
-        <button class="btn btn-lg btn-dark" routerLink="/account" >Back</button>
-        <button class="btn btn-lg btn-dark" (click)="login()" style="margin-left: 65%">Login</button>
+      <div class="input-group mb-3" style="margin-top: 15%">
+        <button class="btn btn-lg btn-dark" (click)="login()" style="margin-left: 35%">Login</button>
       </div>
     </div>
   </div>
+  <br><br>
 </div>
 
 
-<div *ngIf="buttonClicked" class="start" >
+<div *ngIf="buttonClicked" class="start">
   <div class="input-group mb-3" style="padding: 10% 10% 10% 10%" align="center">
     <button class="btn btn-lg btn-dark" (click)="router.navigate(['/papers'])">Show papers</button>
-    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/journals'])" style="margin-left: 65%">Show journals</button>
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/journals'])" style="margin-left: 30%">Show
+      journals
+    </button>
+  </div>
+</div>
+
+<div *ngIf="journalLogged" class="start">
+  <div class="input-group mb-3" style="padding:  10% 10% 10% 10%" align="center">
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/journals'])" style="margin-left: 35%">Show
+      journals
+    </button>
   </div>
 </div>
