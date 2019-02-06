@@ -7,7 +7,8 @@ export class Paper {
     public title?: string,
     public keyWords?: string,
     public abstrect?: string,
-    public journal?: Journal
+    public journal?: Journal,
+    public price?: number
   ) {
     this.journal = new Journal();
   };

@@ -32,14 +32,15 @@ export class AllJournalsComponent implements OnInit {
   chooseJournal(journal: Journal) {
     if (localStorage.getItem('role') === 'company') {
       const url = localStorage.getItem('user') + '-company' + '-' + journal.name + '-' + 0;
-      console.log('url');
-      console.log(url);
 
       this.journalService.getTokenForName(url).subscribe(token => {
         window.location.replace('https://localhost:4200/payment-methods-list/'.concat(token));
       });
     } else {
-      const url = localStorage.getItem('user') + '-journal' + '-' + journal.name + '-' + journal.price;
+
+      const url = localStorage.getItem('user') + '-journal' + '-' + journal.name + '-' +
+        journal.price + '-' + localStorage.getItem('scName');
+
       this.journalService.getTokenForName(url).subscribe(token => {
         window.location.replace('https://localhost:4200/payment-methods/'.concat(token));
       });
