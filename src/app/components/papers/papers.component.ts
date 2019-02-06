@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Paper} from '../../model/paper';
 import {PaperService} from '../../services/paper/paper.service';
 import {Router} from '@angular/router';
+import {JournalService} from '../../services/journal/journal.service';
 
 @Component({
   selector: 'app-papers',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class PapersComponent implements OnInit {
 
-  constructor(private paperService: PaperService, private router: Router) {
+  constructor(private paperService: PaperService, private router: Router, private journalService: JournalService) {
   }
 
   papers: Paper[];
@@ -30,9 +31,13 @@ export class PapersComponent implements OnInit {
   }
 
   payPaper(paper: Paper) {
-    localStorage.setItem('typeOfPayment', 'paper');
-    localStorage.setItem('paper', JSON.stringify(paper));
-    window.location.replace('https://localhost:4200');
+    const url = localStorage.getItem('user') + '-paper' + '-' + paper.journal.name + '-' +
+      paper.price + '-' + localStorage.getItem('scName') + '-' + paper.id;
+
+    this.journalService.getTokenForName(url).subscribe(token => {
+      window.location.replace('https://localhost:4200/payment-methods/'.concat(token));
+
+    });
   }
 
 }

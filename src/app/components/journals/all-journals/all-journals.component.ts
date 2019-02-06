@@ -23,7 +23,9 @@ export class AllJournalsComponent implements OnInit {
   }
 
   chooseJournal(journal: Journal) {
-    const url = localStorage.getItem('user') + '-journal' + '-' + journal.name + '-' + journal.price
+    const url = localStorage.getItem('user') + '-journal' + '-' + journal.name + '-' +
+      journal.price + '-' + localStorage.getItem('scName');
+
     this.journalService.getTokenForName(url).subscribe(token => {
       window.location.replace('https://localhost:4200/payment-methods/'.concat(token));
 
