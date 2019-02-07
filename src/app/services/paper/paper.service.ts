@@ -16,4 +16,9 @@ export class PaperService {
   addPaper(paper: Paper, username: string) {
     return this.http.post('/api/papers/add', {'paperId': paper.id, 'username': username});
   }
+
+  getMyPapers(name: string) {
+    return this.http.get('/api/papers/my-papers/'.concat(name));
+
+  }
 }

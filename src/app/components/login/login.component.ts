@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.username, this.password).subscribe(res => {
       console.log(res);
       localStorage.setItem('user', this.username);
-      if (res['role'] === 'COMPANY') {
+      if (res['user']['role'] === 'COMPANY') {
         this.journalLogged = true;
         localStorage.setItem('role', 'company');
-        localStorage.setItem('myJournals', JSON.stringify(res['myJournals']));
+        localStorage.setItem('myJournals', JSON.stringify(res['user']['myJournals']));
       } else {
         this.buttonClicked = true;
         localStorage.setItem('role', 'user');

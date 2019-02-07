@@ -17,10 +17,21 @@ export class PapersComponent implements OnInit {
   papers: Paper[];
 
   ngOnInit() {
-    this.paperService.getAllPapers().subscribe(res => {
-      console.log(res);
-      this.papers = res as Paper[];
-    });
+    const type = this.router.url.split('/')[2];
+    if (type === 'buy') {
+      this.paperService.getAllPapers().subscribe(res => {
+        console.log(res);
+        this.papers = res as Paper[];
+      });
+    }
+    
+    if (type === 'my-papers') {
+      this.paperService.getMyPapers(localStorage.getItem('user')).subscribe(res => {
+        console.log(res);
+        this.papers = res as Paper[];
+      });
+    }
+
   }
 
   getPaper(paper: Paper, index: number) {

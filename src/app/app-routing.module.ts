@@ -7,7 +7,7 @@ import {PapersComponent} from './components/papers/papers.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'journals', component: AllJournalsComponent},
-  {path: 'papers', component: PapersComponent},
+  {path: 'papers/:type', component: PapersComponent},
   {path: 'login', component: LoginComponent}
 ];
 
