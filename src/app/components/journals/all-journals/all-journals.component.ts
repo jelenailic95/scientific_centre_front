@@ -16,11 +16,8 @@ export class AllJournalsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('role') === 'COMPANY') {
-      this.journalService.getAllCompanyJournals(localStorage.getItem('journals')).subscribe(res => {
-        console.log(res);
-        this.journals = JSON.parse(localStorage.getItem('myJournals'));
-      });
+    if (localStorage.getItem('role') === 'company') {
+      this.journals = JSON.parse(localStorage.getItem('myJournals'));
     } else {
       this.journalService.getAllJournals().subscribe(res => {
         console.log(res);

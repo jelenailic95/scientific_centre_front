@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.username, this.password).subscribe(res => {
-      console.log(res);
       localStorage.setItem('user', this.username);
       if (res['user']['role'] === 'COMPANY') {
         this.journalLogged = true;
@@ -36,7 +35,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role', 'user');
       }
       localStorage.setItem('scName', res['scName']);
-      this.buttonClicked = true;
+    }, error1 => {
+      alert('Username or password is not correct! Try again.');
     });
   }
 }
