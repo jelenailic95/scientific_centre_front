@@ -9,6 +9,7 @@ import {JournalService} from './services/journal/journal.service';
 import {AllJournalsComponent} from './components/journals/all-journals/all-journals.component';
 import { LoginComponent } from './components/login/login.component';
 import { PapersComponent } from './components/papers/papers.component';
+import {Globals} from './globals';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PapersComponent } from './components/papers/papers.component';
     FormsModule
   ],
   providers: [
-    JournalService
+    JournalService, Globals
   ],
   bootstrap: [AppComponent]
 })
