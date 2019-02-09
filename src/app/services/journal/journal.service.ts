@@ -10,7 +10,7 @@ export class JournalService {
   }
 
   getAllJournals() {
-    return this.http.get('/api/journals');
+    return this.http.get('/api/journals/'.concat(localStorage.getItem('user')));
   }
 
   getAllCompanyJournals(company: string) {

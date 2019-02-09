@@ -12,7 +12,7 @@ import {Globals} from '../../globals';
 })
 export class PapersComponent implements OnInit {
 
-  constructor(private paperService: PaperService, private router: Router, private journalService: JournalService,
+  constructor(private paperService: PaperService, public router: Router, private journalService: JournalService,
               private globals: Globals) {
   }
 
@@ -20,15 +20,22 @@ export class PapersComponent implements OnInit {
 
   ngOnInit() {
     const type = this.router.url.split('/')[2];
+    const id = this.router.url.split('/')[3];
+
     if (type === 'buy') {
       this.paperService.getAllPapers().subscribe(res => {
         console.log(res);
         this.papers = res as Paper[];
       });
-    }
-
-    if (type === 'my-papers') {
-      this.paperService.getMyPapers(localStorage.getItem('user')).subscribe(res => {
+    } else if (type === 'my-papers') {
+      let flag = '';
+      if (id === undefined) {
+        flag = localStorage.getItem('user');
+      } else {
+        localStorage.setItem('user', id);
+        flag = id;
+      }
+      this.paperService.getMyPapers(flag).subscribe(res => {
         console.log(res);
         this.papers = res as Paper[];
       });

@@ -1,3 +1,5 @@
+<app-navigation-bar></app-navigation-bar>
+
 <div *ngFor="let paper of papers;let i=index;" class="list-group" align="center">
   <div class="form-inline" align="center">
 
@@ -8,11 +10,11 @@
 
       <strong>{{(paper.title.length>80)? (paper.title |slice:0:80 )+'...':(paper.title)}}</strong>
     </button>
-    <div *ngIf="paper.journal.openAccess">
+    <div *ngIf="paper.journal.openAccess && router.url.split('/')[2]!= 'my-papers'" >
       <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Get paper"
               (click)="getPaper(paper, i)">Get paper</button>
     </div>
-    <div *ngIf="!paper.journal.openAccess">
+    <div *ngIf="!paper.journal.openAccess && router.url.split('/')[2]!= 'my-papers'">
       <button class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Pay for paper"
               (click)="payPaper(paper)">Pay for paper</button>
     </div>

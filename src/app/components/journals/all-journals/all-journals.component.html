@@ -1,12 +1,13 @@
+<app-navigation-bar></app-navigation-bar>
 
 <div *ngFor="let journal of journals;let i=index;">
   <div class="card cardView" id="journal{{journal.id}}"  (click)="chooseJournal(journal)">
     <img class="card-img-top" src="assets/images/journal.jpg" height="180" alt="Card image cap">
     <div class="card-body" id="card_{{journal.id}}">
-      <h4 class="card-title">Name {{journal.name}}</h4>
+      <h4 class="card-title">Name: {{journal.name}}</h4>
       <h6 class="card-subtitle mb-2 text-muted">ISSN number: {{journal.issnNumber}}</h6>
-      <p class="card-text" *ngIf="journal.openAccess">Open access<br>
-      <p class="card-text" *ngIf="!journal.openAccess">Not open access<br>
+      <!--<p class="card-text" *ngIf="journal.openAccess">Open access<br>-->
+      <!--<p class="card-text" *ngIf="!journal.openAccess">Not open access<br>-->
       <p class="card-text">Price: {{journal.price}} USD<br>
       <p class="card-text" >Duration period: {{journal.period}} months<br>
     </div>

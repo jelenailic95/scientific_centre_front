@@ -3,12 +3,16 @@ import {RouterModule, Routes} from '@angular/router';
 import {AllJournalsComponent} from './components/journals/all-journals/all-journals.component';
 import {LoginComponent} from './components/login/login.component';
 import {PapersComponent} from './components/papers/papers.component';
+import {ViewComponent} from './components/view/view.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'view', component: ViewComponent},
   {path: 'journals', component: AllJournalsComponent},
   {path: 'papers/:type', component: PapersComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'papers/my-papers/:id', component: PapersComponent}
+
 ];
 
 @NgModule({

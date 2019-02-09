@@ -32,7 +32,7 @@ export class AllJournalsComponent implements OnInit {
       const url = localStorage.getItem('user') + '-company' + '-' + journal.name + '-' + 0;
 
       this.journalService.getTokenForName(url).subscribe(token => {
-        window.location.replace(this.globals.address + '/payment-methods-list/'.concat(token));
+        window.location.replace('https://192.168.1.5:4200/payment-methods-list/'.concat(token));
       });
     } else {
 

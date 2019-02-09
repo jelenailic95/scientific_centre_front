@@ -10,13 +10,17 @@ import {AllJournalsComponent} from './components/journals/all-journals/all-journ
 import { LoginComponent } from './components/login/login.component';
 import { PapersComponent } from './components/papers/papers.component';
 import {Globals} from './globals';
+import {NavigationBarComponent} from './components/navigation-bar/navigation-bar.component';
+import { ViewComponent } from './components/view/view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllJournalsComponent,
     LoginComponent,
-    PapersComponent
+    PapersComponent,
+    NavigationBarComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

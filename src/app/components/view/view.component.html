@@ -1,0 +1,21 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div *ngIf="clientLogged" class="start">
+  <div class="input-group mb-3" style="padding: 10% 10% 10% 10%" align="center">
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/papers/buy'])">Buy papers</button>
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/journals'])" style="margin-left: 10%">Buy
+      journals
+    </button>
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/papers/my-papers'])" style="margin-left: 10%">My
+      papers
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!clientLogged" class="start">
+  <div class="input-group mb-3" style="padding:  10% 10% 10% 10%" align="center">
+    <button class="btn btn-lg btn-dark" (click)="router.navigate(['/journals'])" style="margin-left: 35%">Show
+      journals
+    </button>
+  </div>
+</div>

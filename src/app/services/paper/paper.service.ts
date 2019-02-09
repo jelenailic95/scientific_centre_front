@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Paper} from '../../model/paper';
 
@@ -7,10 +7,11 @@ import {Paper} from '../../model/paper';
 })
 export class PaperService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAllPapers() {
-    return this.http.get('/api/papers');
+    return this.http.get('/api/papers/'.concat(localStorage.getItem('user')));
   }
 
   addPaper(paper: Paper, username: string) {
